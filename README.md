@@ -8,4 +8,8 @@ http://en.wikipedia.org/wiki/Web_development
 <아카네 리제>
 
 소속-스텔라이브
-![image](https://github.com/user-attachments/assets/9f91ded9-c163-457d-9e5b-a6f3ca4b1da0)
+![image](https://github.com/user-attachments/assets/9f91ded9-c163-457d-9e5b-a6f3ca4b1da0) 
+
+구독자 애칭-피엔나
+![image](https://github.com/user-attachments/assets/b9d4d232-8a4b-4bb1-a432-6d2f174d4157)
+

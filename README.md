@@ -6,3 +6,6 @@ http://en.wikipedia.org/wiki/Web_development
 ![image](https://github.com/user-attachments/assets/d85fd4bd-e4e2-46f7-8e15-797f8ebb7274)
 
 <아카네 리제>
+
+소속-스텔라이브
+![image](https://github.com/user-attachments/assets/9f91ded9-c163-457d-9e5b-a6f3ca4b1da0)

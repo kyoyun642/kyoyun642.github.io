@@ -1,5 +1,5 @@
 # kyoyun642.github.io
-[**homework2-1**](homework2-1.html)
+[**homework2-1**](https://kyoyun.github.io/homework2-1.html)
 
 내가 좋아하는 유튜버
 ![image](https://github.com/user-attachments/assets/d85fd4bd-e4e2-46f7-8e15-797f8ebb7274)

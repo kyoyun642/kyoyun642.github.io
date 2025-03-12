@@ -1,5 +1,5 @@
 # kyoyun642.github.io
-[**homework2-1**](http://kyoyun642.github.io/homework2-1.html)
+[**homework2-1**](homework2-1.html)
 http://en.wikipedia.org/wiki/Web_development
 
 내가 좋아하는 유튜버

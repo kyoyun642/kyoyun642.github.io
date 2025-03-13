@@ -5,4 +5,4 @@
 
 [**homework2**](https://kyoyun642.github.io/homework2.html)
 
-[**css_demo**](https://kyoyun642.github.io/kyoyun642.github.io/css_demo.html)
+[**css_demo**](https://kyoyun642.github.io/css_demo.html)

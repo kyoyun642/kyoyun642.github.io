@@ -8,6 +8,17 @@ table {
   width: 20%;
 }
 
+table {
+            border: 2px solid black; /* 테이블 외곽 테두리 */
+            border-collapse: collapse; /* 테두리 겹침 방지 */
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid black; /* 셀 테두리 */
+            padding: 8px; /* 안쪽 여백 */
+            text-align: center; /* 가운데 정렬 */
+        }
 td, th {
   border: 1px solid #ddddd;
   text-align: left;
@@ -29,8 +40,8 @@ tr:nth-child(even) {
     <th style="color: white; background-color: black;">Contact</th>
   </tr>
   <tr>
-    <td style="color: white; background-color: black;">Alfreds Futterkiste</td>
-    <td style="color: white; background-color: black;">Maria Anders</td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
   </tr>
   <tr>
     <td>Centro comercial Moctezuma</td>

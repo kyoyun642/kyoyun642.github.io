@@ -5,15 +5,17 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 30%;
+  width: 20%;
 }
 
 td, th {
-  border: 1px solid #000000;
+  border: 1px solid #ddddd;
   text-align: left;
   padding: 8px;
 }
-
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 </style>
 </head>
@@ -23,12 +25,12 @@ td, th {
 
 <table>
   <tr>
-    <th style="background-color:DodgerBlue";>Company</th>
-    <th style="background-color:DodgerBlue";>Contact</th>
+    <th style="background-color:black";>Company</th>
+    <th style="background-color:black";>Contact</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
+    <td style="color: #FFFFF;">Alfreds Futterkiste</td>
+    <td style="color: #FFFFF;">Maria Anders</td>
   </tr>
   <tr>
     <td>Centro comercial Moctezuma</td>

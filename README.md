@@ -13,4 +13,4 @@
 
 [**homework3-2**](https://kyoyun642.github.io/img3-2.html)
 
-[**homework3-3**](https://github.com/kyoyun642/kyoyun642.github.io/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-09%20042218.png)
+[**homework3-3**](https://kyoyun642.github.io/img3-3.html)

@@ -1,0 +1,19 @@
+<?php
+$n = 30;
+$sum = 0;
+$prod = 1;
+
+echo "1부터 $n까지의 숫자: ";
+
+for ($i = 1; $i <= $n; $i++) {
+    echo $i;
+    if ($i < $n) echo " + ";
+
+    $sum += $i;
+    $prod *= $i;
+}
+
+echo "\n";
+echo "1 + ... + $n = $sum\n";
+echo "1 * ... * $n = $prod\n";
+?>

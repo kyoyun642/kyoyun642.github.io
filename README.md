@@ -17,4 +17,4 @@
 
 [**homework3-4**](https://kyoyun642.github.io/img3-4.html)
 
-[**homework3-5**](https://kyoyun642.github.io/img3-5.html)
+[**homework3-5**](https://kyoyun642.github.io/img3-5.php)

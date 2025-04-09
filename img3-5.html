@@ -17,33 +17,31 @@ echo "<tr>
 
 echo "<tr>";
 
-// 앞쪽 빈 칸
+// 앞 빈칸 출력
 for ($i = 0; $i < $first_day_weekday; $i++) {
     echo "<td></td>";
 }
 
 $week_day = $first_day_weekday;
-for ($day = 1; $day <= $total_days; $day++) {
+for ($i = 1; $i <= $total_days; $i++) {
     $style = "";
-    if ($week_day == 0) $style = "color:red";      // 일요일
-    if ($week_day == 6) $style = "color:blue";     // 토요일
-    if ($day == $today) $style .= ";background-color: #ffff99; font-weight: bold"; // 오늘 강조
+    if ($week_day == 0) $style = "color:red";
+    if ($week_day == 6) $style = "color:blue";
+    if ($i == $today) $style .= "; background-color: #ffff99; font-weight: bold";
 
-    echo "<td style='{$style}'>{$day}</td>";
+    echo "<td style='{$style}'>{$i}</td>";
 
     $week_day++;
-
-    // 줄 바꿈
     if ($week_day == 7) {
         echo "</tr>";
-        if ($day != $total_days) echo "<tr>";
+        if ($i != $total_days) echo "<tr>";
         $week_day = 0;
     }
 }
 
-// 마지막 줄 빈 칸 채우기
+// 마지막 줄 빈칸
 if ($week_day != 0) {
-    for ($i = $week_day; $i < 7; $i++) {
+    for ($j = $week_day; $j < 7; $j++) {
         echo "<td></td>";
     }
     echo "</tr>";

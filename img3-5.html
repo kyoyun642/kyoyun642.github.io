@@ -1,6 +1,8 @@
 <?php
 $year = date("Y");
 $month = date("n");
+$today = date("j");
+
 $first_day = mktime(0, 0, 0, $month, 1, $year);
 $first_day_weekday = date("w", $first_day);
 $total_days = date("t", $first_day);
@@ -13,19 +15,39 @@ echo "<tr>
         <th style='color:blue'>토</th>
       </tr>";
 
-$day_count = 1;
 echo "<tr>";
 
-for ($i = 0; $i < $first_day_weekday; $i++) echo "<td></td>";
-
-for ($i = 1; $i <= $total_days; $i++) {
-    $style = "";
-    $week_day = ($first_day_weekday + $i - 1) % 7;
-    if ($week_day == 0) $style = "color:red";
-    if ($week_day == 6) $style = "color:blue";
-    echo "<td style='{$style}'>$i</td>";
-    if ($week_day == 6) echo "</tr><tr>";
+// 앞쪽 빈 칸
+for ($i = 0; $i < $first_day_weekday; $i++) {
+    echo "<td></td>";
 }
 
-echo "</tr></table>";
+$week_day = $first_day_weekday;
+for ($day = 1; $day <= $total_days; $day++) {
+    $style = "";
+    if ($week_day == 0) $style = "color:red";      // 일요일
+    if ($week_day == 6) $style = "color:blue";     // 토요일
+    if ($day == $today) $style .= ";background-color: #ffff99; font-weight: bold"; // 오늘 강조
+
+    echo "<td style='{$style}'>{$day}</td>";
+
+    $week_day++;
+
+    // 줄 바꿈
+    if ($week_day == 7) {
+        echo "</tr>";
+        if ($day != $total_days) echo "<tr>";
+        $week_day = 0;
+    }
+}
+
+// 마지막 줄 빈 칸 채우기
+if ($week_day != 0) {
+    for ($i = $week_day; $i < 7; $i++) {
+        echo "<td></td>";
+    }
+    echo "</tr>";
+}
+
+echo "</table>";
 ?>

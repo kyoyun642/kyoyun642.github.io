@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>도형 계산기</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .form-section { margin-bottom: 30px; }
+    label { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>도형 계산기</h1>
+
+  <!-- 삼각형 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>삼각형 면적</h3>
+      <input type="hidden" name="shape" value="triangle">
+      <label>밑변: <input type="number" name="tri_width" step="0.01" required></label>
+      <label>높이: <input type="number" name="tri_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 직사각형 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>직사각형 면적</h3>
+      <input type="hidden" name="shape" value="rectangle">
+      <label>가로: <input type="number" name="rect_width" step="0.01" required></label>
+      <label>세로: <input type="number" name="rect_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 원 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>원 면적</h3>
+      <input type="hidden" name="shape" value="circle">
+      <label>반지름: <input type="number" name="circle_radius" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 직육면체 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>직육면체 부피</h3>
+      <input type="hidden" name="shape" value="box">
+      <label>가로: <input type="number" name="box_width" step="0.01" required></label>
+      <label>세로: <input type="number" name="box_length" step="0.01" required></label>
+      <label>높이: <input type="number" name="box_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 원통 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>원통 부피</h3>
+      <input type="hidden" name="shape" value="cylinder">
+      <label>반지름: <input type="number" name="cyl_radius" step="0.01" required></label>
+      <label>높이: <input type="number" name="cyl_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 구 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>구 부피</h3>
+      <input type="hidden" name="shape" value="sphere">
+      <label>반지름: <input type="number" name="sphere_radius" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -2,37 +2,105 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>달력 출력 예제</title>
+  <title>HTML 달력</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
-    table { margin: 0 auto; border-collapse: collapse; width: 90%; max-width: 600px; }
-    th, td { border: 1px solid #ccc; padding: 10px; width: 14%; height: 60px; }
-    th { background-color: #f2f2f2; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 600px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      width: 14.28%;
+      height: 60px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .sunday {
+      color: red;
+    }
+    .saturday {
+      color: blue;
+    }
   </style>
 </head>
 <body>
-  <h1>2025년 4월</h1>
-  <table>
-    <tr>
-      <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
-    </tr>
-    <tr>
-      <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-    </tr>
-    <tr>
-      <td>6</td><td>7</td><td>8</td><td>9</td><td><b>10</b></td><td>11</td><td>12</td>
-    </tr>
-    <tr>
-      <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
-    </tr>
-    <tr>
-      <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-    </tr>
-    <tr>
-      <td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
-    </tr>
+
+  <h1 id="calendar-title"></h1>
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th class="sunday">일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th class="saturday">토</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body">
+      <!-- 달력 내용이 JavaScript로 채워짐 -->
+    </tbody>
   </table>
+
+  <script>
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth(); // 0부터 시작
+
+    const calendarTitle = document.getElementById("calendar-title");
+    const calendarBody = document.getElementById("calendar-body");
+
+    const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월",
+                        "7월", "8월", "9월", "10월", "11월", "12월"];
+
+    function buildCalendar(year, month) {
+      calendarTitle.innerText = `${year}년 ${monthNames[month]}`;
+      calendarBody.innerHTML = "";
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+
+      let row = "<tr>";
+      for (let i = 0; i < firstDay; i++) {
+        row += "<td></td>";
+      }
+
+      for (let day = 1; day <= lastDate; day++) {
+        const date = new Date(year, month, day);
+        let classes = "";
+        if (date.getDay() === 0) classes += "sunday";
+        if (date.getDay() === 6) classes += "saturday";
+
+        row += `<td class="${classes}">${day}</td>`;
+
+        if (date.getDay() === 6) {
+          row += "</tr>";
+          calendarBody.innerHTML += row;
+          row = "<tr>";
+        }
+      }
+
+      if (row !== "<tr>") {
+        row += "</tr>";
+        calendarBody.innerHTML += row;
+      }
+    }
+
+    buildCalendar(year, month);
+  </script>
+
 </body>
 </html>
+
 
 

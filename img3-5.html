@@ -1,49 +1,31 @@
 <?php
-$year = date("Y");  // 현재 연도
-$month = date("n"); // 현재 월 (숫자형, 1~12)
-$day = date("j");   // 오늘 날짜
-
-// 그 달의 첫 날 요일 (0: 일요일, 1: 월요일, ...)
+$year = date("Y");
+$month = date("n");
 $first_day = mktime(0, 0, 0, $month, 1, $year);
 $first_day_weekday = date("w", $first_day);
-
-// 그 달의 총 일 수
 $total_days = date("t", $first_day);
 
 echo "<h2>{$year}년 {$month}월</h2>";
 echo "<table border='1' cellpadding='10'>";
 echo "<tr>
         <th style='color:red'>일</th>
-        <th>월</th>
-        <th>화</th>
-        <th>수</th>
-        <th>목</th>
-        <th>금</th>
+        <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
         <th style='color:blue'>토</th>
       </tr>";
 
-// 줄 수 계산
 $day_count = 1;
 echo "<tr>";
 
-// 빈칸 채우기
-for ($i = 0; $i < $first_day_weekday; $i++) {
-    echo "<td></td>";
-}
+for ($i = 0; $i < $first_day_weekday; $i++) echo "<td></td>";
 
-// 날짜 출력
 for ($i = 1; $i <= $total_days; $i++) {
-    if ($day_count % 7 == 1) echo "<tr>"; // 줄 바꿈
     $style = "";
-    if (($day_count - 1) % 7 == 0) $style = "color:red";      // 일요일
-    if (($day_count - 1) % 7 == 6) $style = "color:blue";     // 토요일
-
+    $week_day = ($first_day_weekday + $i - 1) % 7;
+    if ($week_day == 0) $style = "color:red";
+    if ($week_day == 6) $style = "color:blue";
     echo "<td style='{$style}'>$i</td>";
-    
-    if ($day_count % 7 == 0) echo "</tr>";
-    $day_count++;
+    if ($week_day == 6) echo "</tr><tr>";
 }
 
-echo "</tr>";
-echo "</table>";
+echo "</tr></table>";
 ?>

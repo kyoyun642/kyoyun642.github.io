@@ -1,0 +1,50 @@
+<?php
+// 달력을 생성할 월과 연도를 지정합니다.
+$year = date('Y');
+$month = date('m');
+
+// 첫 번째 날의 날짜를 얻기 위해 '01'을 추가하고, 날짜를 얻습니다.
+$first_day_of_month = strtotime("$year-$month-01");
+
+// 해당 월의 마지막 날짜를 얻습니다.
+$last_day_of_month = strtotime("last day of $year-$month");
+
+// 해당 월의 첫 번째 날과 마지막 날을 기준으로 요일과 날짜를 계산합니다.
+$first_day_weekday = date('w', $first_day_of_month); // 첫 번째 날의 요일 (0=일요일, 1=월요일, ...)
+$last_day = date('d', $last_day_of_month); // 마지막 날의 날짜
+
+// 달력 헤더
+echo "<table border='1'>";
+echo "<tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
+
+// 첫 번째 행은 첫 번째 날부터 시작합니다.
+echo "<tr>";
+
+// 첫 번째 날까지 빈 칸을 출력
+for ($i = 0; $i < $first_day_weekday; $i++) {
+    echo "<td></td>";
+}
+
+// 날짜 출력
+$current_day = 1;
+while ($current_day <= $last_day) {
+    // 날짜 출력
+    echo "<td>$current_day</td>";
+
+    // 한 주가 끝나면 새로운 행을 시작
+    if (($first_day_weekday + $current_day) % 7 == 0) {
+        echo "</tr><tr>";
+    }
+
+    $current_day++;
+}
+
+// 마지막 줄의 빈 칸을 채워서 완성
+while (($first_day_weekday + $current_day - 1) % 7 != 0) {
+    echo "<td></td>";
+    $current_day++;
+}
+
+echo "</tr>";
+echo "</table>";
+?>

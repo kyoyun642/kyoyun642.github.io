@@ -6,3 +6,163 @@
 <img src="https://github.com/kyoyun642/kyoyun642.github.io/blob/main/5.png?raw=true" alt="이미지설명" width="200" height="200">
 <img src="https://github.com/kyoyun642/kyoyun642.github.io/blob/main/6.png?raw=true" alt="이미지설명" width="200" height="200">
 <img src="https://github.com/kyoyun642/kyoyun642.github.io/blob/main/7.png?raw=true" alt="이미지설명" width="200" height="200">
+
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <h1>소스코드</h1>
+    <p><!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>도형 계산기</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .form-section { margin-bottom: 30px; }
+    label { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>도형 계산기</h1>
+
+  <!-- 삼각형 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>삼각형 면적</h3>
+      <input type="hidden" name="shape" value="triangle">
+      <label>밑변: <input type="number" name="tri_width" step="0.01" required></label>
+      <label>높이: <input type="number" name="tri_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 직사각형 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>직사각형 면적</h3>
+      <input type="hidden" name="shape" value="rectangle">
+      <label>가로: <input type="number" name="rect_width" step="0.01" required></label>
+      <label>세로: <input type="number" name="rect_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 원 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>원 면적</h3>
+      <input type="hidden" name="shape" value="circle">
+      <label>반지름: <input type="number" name="circle_radius" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 직육면체 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>직육면체 부피</h3>
+      <input type="hidden" name="shape" value="box">
+      <label>가로: <input type="number" name="box_width" step="0.01" required></label>
+      <label>세로: <input type="number" name="box_length" step="0.01" required></label>
+      <label>높이: <input type="number" name="box_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 원통 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>원통 부피</h3>
+      <input type="hidden" name="shape" value="cylinder">
+      <label>반지름: <input type="number" name="cyl_radius" step="0.01" required></label>
+      <label>높이: <input type="number" name="cyl_height" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+  <!-- 구 -->
+  <div class="form-section">
+    <form method="post" action="calculate.php">
+      <h3>구 부피</h3>
+      <input type="hidden" name="shape" value="sphere">
+      <label>반지름: <input type="number" name="sphere_radius" step="0.01" required></label>
+      <button type="submit">계산</button>
+    </form>
+  </div>
+
+</body>
+</html>
+    </p>
+    <p>
+      <?php
+function getPost($key) {
+  return isset($_POST[$key]) ? floatval($_POST[$key]) : 0;
+}
+
+$result = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['shape']) {
+    case "triangle":
+      $w = getPost("tri_width");
+      $h = getPost("tri_height");
+      $area = ($w * $h) / 2;
+      $result = "삼각형 면적: " . round($area, 2);
+      break;
+
+    case "rectangle":
+      $w = getPost("rect_width");
+      $h = getPost("rect_height");
+      $area = $w * $h;
+      $result = "직사각형 면적: " . round($area, 2);
+      break;
+
+    case "circle":
+      $r = getPost("circle_radius");
+      $area = pi() * $r * $r;
+      $result = "원 면적: " . round($area, 2);
+      break;
+
+    case "box":
+      $w = getPost("box_width");
+      $l = getPost("box_length");
+      $h = getPost("box_height");
+      $volume = $w * $l * $h;
+      $result = "직육면체 부피: " . round($volume, 2);
+      break;
+
+    case "cylinder":
+      $r = getPost("cyl_radius");
+      $h = getPost("cyl_height");
+      $volume = pi() * $r * $r * $h;
+      $result = "원통 부피: " . round($volume, 2);
+      break;
+
+    case "sphere":
+      $r = getPost("sphere_radius");
+      $volume = (4/3) * pi() * pow($r, 3);
+      $result = "구 부피: " . round($volume, 2);
+      break;
+  }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계산 결과</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    a { display: inline-block; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>계산 결과</h1>
+  <p><?= $result ?></p>
+  <a href="index.html">돌아가기</a>
+</body>
+</html>
+    </p>
+</body>
+</html>

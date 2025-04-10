@@ -1,4 +1,4 @@
-# kyoyun642.github.io
+# kyoyun6432.github.io
 [**homework2-1**](https://kyoyun642.github.io/text.html)
 
 [**homework2-2**](https://kyoyun642.github.io/homework2.html)
